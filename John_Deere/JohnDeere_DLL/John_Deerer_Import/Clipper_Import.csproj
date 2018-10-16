@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{29B09B2E-20FC-40B7-9619-504D31B197D2}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Clipper_Import</RootNamespace>
+    <AssemblyName>Clipper_Import</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>C:\AlmaCAM\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Actcut.ActcutModel, Version=2.0.0.53465, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\AlmaCAM\Bin\Actcut.ActcutModel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Actcut.ActcutModelManager">
+      <HintPath>C:\AlmaCAM\Bin\Actcut.ActcutModelManager.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Actcut.NestingManager">
+      <HintPath>C:\AlmaCAM\Bin\Actcut.NestingManager.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Actcut.ResourceManager">
+      <HintPath>C:\AlmaCAM\Bin\Actcut.ResourceManager.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Actcut.ResourceModel">
+      <HintPath>C:\AlmaCAM\Bin\Actcut.ResourceModel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Alma.NetKernel, Version=2.0.0.53465, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\AlmaCAM\Bin\Alma.NetKernel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Wpm.Implement.ComponentEditor">
+      <HintPath>C:\AlmaCAM\Bin\Wpm.Implement.ComponentEditor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Wpm.Implement.Manager">
+      <HintPath>C:\AlmaCAM\Bin\Wpm.Implement.Manager.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Wpm.Implement.Processor">
+      <HintPath>C:\AlmaCAM\Bin\Wpm.Implement.Processor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Wpm.Schema.Kernel">
+      <HintPath>C:\AlmaCAM\Bin\Wpm.Schema.Kernel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\LIBRARY\ImportTools\ImportTools.csproj">
+      <Project>{49768c4b-0f89-40e8-943e-2977ef65834f}</Project>
+      <Name>ImportTools</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Clipper_DLL\Clipper_DLL.csproj">
+      <Project>{f2b68199-a16b-4b40-b4fd-718126f984af}</Project>
+      <Name>Clipper_DLL</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
