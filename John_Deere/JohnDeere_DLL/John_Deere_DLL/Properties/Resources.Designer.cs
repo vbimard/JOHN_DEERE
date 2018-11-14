@@ -61,7 +61,7 @@ namespace AF_JOHN_DEERE_Dll.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à 2.1.2;2.1.3.
+        ///   Recherche une chaîne localisée semblable à 2.1.2;2.1.3;2.1.4.
         /// </summary>
         internal static string Almcam_Version {
             get {

@@ -234,7 +234,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetPath)" "C:\AlmaCAM\Bin\$(SolutionName)"
+    <PostBuildEvent>rem copy "$(TargetPath)" "C:\AlmaCAM\Bin\$(SolutionName)"
 copy "$(TargetPath)" "C:\AlmaCAM\Bin\JOHN_DEERE\AlmaCamTrainingTest.exe"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

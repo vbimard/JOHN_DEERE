@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AlmaCamTrainingTest")]
-[assembly: AssemblyDescription("2.0")]
+[assembly: AssemblyTitle("AlmaCamTrainingTest JOHN DEERE")]
+[assembly: AssemblyDescription("2.1.4")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("AlmaCamTrainingTest")]
+[assembly: AssemblyProduct("AlmaCamTrainingTest JOHN DEERE")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -33,4 +33,4 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("2.0.0.0")]
+[assembly: AssemblyFileVersion("2.1.4.0")]

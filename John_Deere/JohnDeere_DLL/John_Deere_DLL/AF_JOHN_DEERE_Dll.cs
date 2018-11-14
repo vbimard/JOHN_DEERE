@@ -1743,6 +1743,9 @@ namespace AF_JOHN_DEERE
                             firstLine = false;
                         }
                     }
+
+                    sw.WriteLine("xxxxxxxxxxxxxxxxxxxxxx");
+
                 }
             }
             else
@@ -1780,22 +1783,24 @@ namespace AF_JOHN_DEERE
                     string format_double = "{0:0.000}";
                     int accuracy = JohnDeere_Param.get_string_format_double().Split('.')[1].Count() - 1;
                     List<string> ofdone = new List<string>();
+                    Int64 toleNumber = 0;
                         //// recuperation des informations a regrouper
                         foreach (IEntity nesting in nestinglist)
                         {
-                                        //multiplicity=nesting.GetFieldValueAsLong("_QUANTITY");
 
+                                        toleNumber += nesting.GetFieldValueAsInt("_QUANTITY");
                                         JohnDeere_Infos JohnDeere_Infos = new JohnDeere_Infos();
                                         //meme matiere uniquement
                                         if (nesting.GetFieldValueAsEntity("_MATERIAL").GetFieldValueAsString("_NAME") == material)
                                         {
                                             JohnDeere_Infos = this.execute(nesting);
-
+                                            
                                             foreach (Nest_Infos_2 currentnestinfos in JohnDeere_Infos.nestinfoslist)
                                             {
                                                 parts = parts.Concat(currentnestinfos.Nested_Part_Infos_List).ToList();
                                                 partstotalsurface += currentnestinfos.Calculus_Parts_Total_Surface;
                                                 sheetTotalSurface += currentnestinfos.Tole_Nesting.Sheet_Surface;
+                                              
                                             }
 
                          
@@ -1813,6 +1818,7 @@ namespace AF_JOHN_DEERE
 
                         //on recupere le ratio global
                         double ratio = sheetTotalSurface / partstotalsurface;
+                    
                     //on boucle sur les of
                     foreach (Nested_PartInfo p in parts)
                         {
@@ -1830,10 +1836,9 @@ namespace AF_JOHN_DEERE
                                 //totalpartsurface = of.Sum(c => c.Surface * ratio) * partquantity;
                                 totalpartsurface = p.Surface * partquantity* ratio;
                                 //ajout de la ligne dans le fichier de retour
-                                  string line = p.Part_Name + separator + partquantity + separator + String.Format(format_double, totalpartsurface/ sheetTotalSurface) + separator + filename;
-                         
+                                  string line = p.Part_Name + separator + partquantity + separator + String.Format(format_double, totalpartsurface/ sheetTotalSurface* toleNumber) + separator + filename;
+
                             ////
-                                
                             RetourGp.Add(line);
                             
                             ofdone.Add(p.Part_Name);
@@ -1915,8 +1920,10 @@ namespace AF_JOHN_DEERE
                 {
                     foreach (string line in retourGp)
                             {//ecriture du contenu de retourgp
-                                export_gpao_file.WriteLine(line);
+                                               export_gpao_file.WriteLine(line.Replace(".", ","));
                             }
+
+                    export_gpao_file.WriteLine("xxxxxxxxxxxxxxxxxxxxxx");
                 }
 
 
